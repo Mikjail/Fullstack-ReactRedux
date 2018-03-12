@@ -7,7 +7,13 @@ const config = require('./config/keys');
 require('./models/User');
 require('./services/passport');
 
-mongoose.connect(config.MONGODB_URI);
+mongoose.connect(config.MONGODB_URI, function (err, res) {
+    if (err) {
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    } else {
+    console.log ('Succeeded connected to: ' + uristring);
+    }
+  });
 
 const app = express();
 
