@@ -9,9 +9,9 @@ require('./services/passport');
 
 mongoose.connect(config.MONGODB_URI, function (err, res) {
     if (err) {
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log ('ERROR connecting to: ' + config.MONGODB_URI + '. ' + err);
     } else {
-    console.log ('Succeeded connected to: ' + uristring);
+    console.log ('Succeeded connected to: ' + config.MONGODB_URI);
     }
   });
 
