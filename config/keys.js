@@ -1,6 +1,6 @@
 // key.js
-if(process.env.NODE_ENV === 'productiob'){
-    
+if(process.env.NODE_ENV === 'production'){
+    module.exports = require('./prod');
 }else{
-   module.export = require('.dev');
+   module.exports = require('./dev');
 }
