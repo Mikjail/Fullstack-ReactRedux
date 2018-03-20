@@ -5,7 +5,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const config = require('./config/keys');
 
-require('./models/User');
+require('./models/user');
 require('./services/passport');
 
 mongoose.connect(config.MONGODB_URI, function (err, res) {
