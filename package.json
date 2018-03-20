@@ -8,7 +8,7 @@
     "npm": "5.0.3"
   },
   "scripts": {
-    "heroku-prebuild":"npm install --save mongoose && npm install --save cookie-session",
+    "heroku-prebuild":"npm install --save mongoose && npm install --save cookie-session && npm install --save passport && npm install --save body-parser",
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
