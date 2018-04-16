@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const config = require('./config/keys');
 
 require('./models/user');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(config.MONGODB_URI, function (err, res) {
@@ -31,6 +32,7 @@ app.use(bodyParser.json());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'production'){
     // 1. Express will serve up prod assets like main.css and main.js
