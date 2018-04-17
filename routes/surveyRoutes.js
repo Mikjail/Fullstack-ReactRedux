@@ -12,6 +12,20 @@ const RecipientSchema = require('../models/Recipient');
 
 module.exports = app =>{
     
+    app.delete('/api/surveys',requireLogin,async (req, res)=>{
+        try{
+            const mongoResult = await Survey.findByIdAndRemove(req.query[0]).exec();
+            res.send(mongoResult);
+        }catch(error){
+            res.send({
+                status: 409,
+                message: 'Request could not be completed. Check the id',
+                data: ''
+            })
+        }
+        
+    })
+
     app.get('/api/surveys',requireLogin, async (req,res) =>{
         const surveys = await Survey.find({ _user: req.user.id })
         .select({ recipients: false});
@@ -47,6 +61,7 @@ module.exports = app =>{
            }
            res.send(req.user);
     })
+
 
     app.post('/api/surveys/webhooks', (req, res) =>{
         const p = new Path('/api/surveys/:surveyId/:choice');

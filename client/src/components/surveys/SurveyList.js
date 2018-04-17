@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { fetchSurveys } from '../../actions';
-
+import * as actions from '../../actions';
+import './SurveyStyles.css';
 class SurveyList extends Component{
+    
     componentDidMount() {
         this.props.fetchSurveys();
     }
@@ -20,10 +21,18 @@ class SurveyList extends Component{
             <p className="right">
                 Sent On: {new Date(survey.dateSent).toLocaleDateString()}
             </p>
+    
             </div>
-            <div className="card-action">
-                <a>Yes: {survey.yes}</a>
-                <a>No: {survey.no}</a>
+            <div className="card-action bottom-card">
+            <div className="card-action-left">
+                <div>Yes: {survey.yes}</div>
+                <div>No: {survey.no}</div>
+            </div>
+            <div className="card-action-right">
+                <button onClick={() => this.props.deleteSurvey(survey._id, this.props.surveys)} className="btn btn-tiny red right">
+                    <i className="material-icons">delete</i>
+                </button>
+            </div>
             </div>
           </div>
         )})
@@ -41,4 +50,4 @@ function mapStateToProps({surveys}){
     return { surveys};
 }
 
-export default connect(mapStateToProps, { fetchSurveys })(SurveyList)
+export default connect(mapStateToProps,actions)(SurveyList)

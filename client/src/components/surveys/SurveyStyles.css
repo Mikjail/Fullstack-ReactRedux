@@ -1,0 +1,22 @@
+.bottom-card{
+    display: flex;
+    flex-direction: row;
+
+}
+.card-action-left{
+    display: flex;
+    flex-grow: 6;
+    flex-direction: row;
+}
+.card-action-left div{
+    margin-right: 20px;
+    font-size: 16px;
+    align-items: center;
+}
+.card-action-right{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

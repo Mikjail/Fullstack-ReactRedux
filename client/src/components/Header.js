@@ -6,7 +6,6 @@ import Payments from './Payments';
 class Header extends Component {
     
     renderContent() {
-        console.log(this.props.auth)
         const { auth } = this.props;
         switch(auth){
             case null:
@@ -28,7 +27,7 @@ class Header extends Component {
                 <div className="nav-wrapper">
                     <Link 
                     to={this.props.auth?'/surveys':'/'} 
-                    className="left brand-logo"
+                    className="hide-on-small-only left brand-logo"
                     >
                         Emaily
                     </Link>
